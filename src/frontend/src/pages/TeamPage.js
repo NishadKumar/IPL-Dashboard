@@ -28,7 +28,6 @@ export const TeamPage = () => {
             <h1>{team.teamName}</h1>
             <MatchDetailsCard teamName = {team.teamName} match={team.latestMatches[0]} />
             {team.latestMatches.slice(1).map(latestMatch => <MatchSmallCard teamName = {team.teamName} match={latestMatch} />)}
-
         </div>
     );
 }
