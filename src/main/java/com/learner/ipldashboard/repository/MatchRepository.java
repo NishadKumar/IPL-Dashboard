@@ -21,4 +21,9 @@ public interface MatchRepository extends CrudRepository<Match, Long> {
         @Param("startDate") LocalDate startDate, 
         @Param("endDate") LocalDate endDate
     );
+
+    default List<Match> findLatestMatchesByTeam(String teamName, int count) {
+        return getByTeam1OrTeam2OrderByDateDesc(teamName, teamName, PageRequest.of(0, count));
+    }
+
 }
